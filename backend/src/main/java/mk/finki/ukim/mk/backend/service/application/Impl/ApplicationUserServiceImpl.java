@@ -27,7 +27,7 @@ public class ApplicationUserServiceImpl implements ApplicationUserService {
 
     @Override
     public DisplayUserDto save(CreateUserDto user) {
-        return DisplayUserDto.fromUser(user.toUser());
+        return DisplayUserDto.fromUser(userService.save(user.toUser()));
     }
 
     @Override

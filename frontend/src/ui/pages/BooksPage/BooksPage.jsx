@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import {Box, Button, CircularProgress} from "@mui/material";
 import "./BooksPage.css";
-import useDishes from "../../../hooks/useDishes.js";
-import DishesGrid from "../../components/dishes/DishesGrid/DishesGrid.jsx";
-import AddDishDialog from "../../components/dishes/AddDishDialog/AddDishDialog.jsx";
+import BooksGrid from "../../components/dishes/DishesGrid/BooksGrid.jsx";
+import AddBookDialog from "../../components/dishes/AddBookDialog/AddBookDialog.jsx";
+import useBooks from "../../../hooks/useBooks.js";
 
-const ProductsPage = () => {
-    const {dishes, loading, onAdd, onEdit, onDelete} = useDishes();
+const BooksPage = () => {
+    const {books, loading, onAdd, onDelete} = useBooks();
 
     const [addDishDialogOpen, setAddDishDialogOpen] = useState(false);
 
@@ -20,13 +20,13 @@ const ProductsPage = () => {
                         onClick={() => setAddDishDialogOpen(true)}
                         className="add-item"
                     >
-                        Add Dish
+                        Add Book
                     </Button>
                 </Box>
                 {loading && <Box className="progress-box"><CircularProgress/></Box>}
-                {!loading && <DishesGrid dishes={dishes} onEdit={onEdit} onDelete={onDelete}/>}
+                {!loading && <BooksGrid books={books}  onDelete={onDelete}/>}
             </Box>
-            <AddDishDialog
+            <AddBookDialog
                 open={addDishDialogOpen}
                 onClose={() => setAddDishDialogOpen(false)}
                 onAdd={onAdd}
@@ -35,4 +35,4 @@ const ProductsPage = () => {
     );
 };
 
-export default ProductsPage;
+export default BooksPage;

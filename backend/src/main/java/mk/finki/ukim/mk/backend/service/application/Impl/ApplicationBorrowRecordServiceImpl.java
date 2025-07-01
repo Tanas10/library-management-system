@@ -35,7 +35,7 @@ public class ApplicationBorrowRecordServiceImpl implements ApplicationBorrowReco
 
     @Override
     public DisplayBorrowRecordDto save(CreateBorrowRecordDto record) {
-        return DisplayBorrowRecordDto.from(record.toBorrowRecord(bookService.findById(record.bookId()), userService.findById(record.userId())));
+        return DisplayBorrowRecordDto.from(borrowRecordService.save(record.toBorrowRecord(bookService.findById(record.bookId()), userService.findById(record.userId()))));
     }
 
     @Override

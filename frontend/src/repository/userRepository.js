@@ -1,12 +1,18 @@
 import axiosInstance from "../axios/axios.js";
 
 const userRepository = {
-    register: async (data) => {
-        return await axiosInstance.post("/user/register", data);
+    findAll: async () => {
+        return await axiosInstance.get("/users");
     },
-    login: async (data) => {
-        return await axiosInstance.post("/user/login", data);
+    find: async (id) => {
+        return await axiosInstance.get(`/users/${id}`);
     },
+    add: async (data) => {
+        return await axiosInstance.post("/users", data);
+    },
+    delete: async (id) => {
+        return await axiosInstance.delete(`/users/${id}`);
+    }
 };
 
 export default userRepository;

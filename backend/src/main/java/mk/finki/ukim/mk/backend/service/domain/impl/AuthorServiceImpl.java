@@ -3,12 +3,14 @@ package mk.finki.ukim.mk.backend.service.domain.impl;
 import mk.finki.ukim.mk.backend.model.domain.Author;
 import mk.finki.ukim.mk.backend.repository.AuthorRepository;
 import mk.finki.ukim.mk.backend.service.domain.AuthorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class AuthorServiceImpl implements AuthorService {
+
     private final AuthorRepository repo;
 
     public AuthorServiceImpl(AuthorRepository repo) {
